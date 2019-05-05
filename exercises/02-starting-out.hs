@@ -1,23 +1,17 @@
-{-
- -Once you've installed Haskell from http://www.haskell.org/platform/, load the interpreter with the command ghci.
- -
- -You can load (and reload) this file in the interpreter with the command: ":l 2-starting-out.hs"
- -
- -The first function has been completed as an example. All the other functions are undefined.
- -They can be implemented in one line using the material covered in http://learnyouahaskell.com/starting-out
- -
- -All indices are zero based.
- -}
-
 -- Find the penultimate element in list l
 penultimate l = last (init l)
 
 -- Find the element at index k in list l
 -- For example: "findK 2 [0,0,1,0,0,0]" returns 1
-findK k l = undefined
+findK k l
+  | l == [] = 0
+  | k == 0 = head l
+  | k > 0 = findK (k - 1) (tail l)
+  | otherwise = 0
 
 -- Determine if list l is a palindrome
-isPalindrome l = undefined
+isPalindrome [] = True
+isPalindrome xs = (head xs) == (last xs) && isPalindrome (tail (init xs))
 
 {-
  - Duplicate the elements in list xs, for example "duplicate [1,2,3]" would give the list [1,1,2,2,3,3]
