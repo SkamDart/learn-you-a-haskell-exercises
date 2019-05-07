@@ -18,12 +18,9 @@ firstColor :: Color
 firstColor = minBound :: Color
 
 reverseColorOrder :: [Color]
-reverseColorOrder = reverse [minBound :: Color .. ]
+reverseColorOrder = reverse [minBound :: Color .. maxBound :: Color]
 
 
 paintMix :: Color -> Color -> Color
-paintMix = undefined
--- paintMix c1 c2
-  -- | c1 < c2 = c2 / c1
-  -- | otherwise = c1 / c2
+paintMix c1 c2 = [c1 .. c2] !! quot (length [c1 .. c2]) 2
 
